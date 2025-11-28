@@ -18,8 +18,7 @@ txt_dir = os.path.join(os.path.expanduser("~"), input("File path to save scratch
 if not os.path.exists(txt_dir):
     make_scratch_list()
 else:
-    # Ask to append or delete file
-    append_delete = input(f"The file {txt_dir} already exists. Type 'a' to append or 'd' to delete and create a new file: ").lower()
+    append_delete = input(f"The file {txt_dir} already exists. Type 'a' to append or 'd' to delete and create a new file: ").lower() # Ask to append or delete file
     if append_delete == 'd':
         try:
             os.remove(txt_dir) # Delete the file
@@ -28,7 +27,7 @@ else:
             make_scratch_list()
 
 # Model Variables
-num_colors = 0 # Number of colors used in the model, set to 0 for default gray
+num_colors = 0 # Number of colors used in the model, set to 0 for default color
 colors = []
 
 # Text Writing Variables
@@ -54,7 +53,7 @@ with open(obj_read, "r") as obj_file:
 
 with open(obj_read, "r") as obj_file, open(txt_write, "a") as txt_file:
     txt_file.write(obj_name + "\n") # Write the model name as the first line
-    txt_file.write(f"{num_colors}\n")# Write number of colors used
+    txt_file.write(f"{num_colors}\n") # Write number of colors used
     for line in obj_file:
         if line.startswith("v "):
             parts = line.split()
