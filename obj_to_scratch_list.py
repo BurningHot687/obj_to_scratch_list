@@ -15,7 +15,7 @@ txt_write = f"{input("Name of txt file to look/create: ")}.txt" # Output .txt fi
 txt_dir = os.path.join(os.path.expanduser("~"), input("File path to save scratch list (from home/absolute directory): "), txt_write)
 
 # Handle the wonkiness of the output file path lol
-if not os.path.exists(os.path.dirname(txt_dir)):
+if not os.path.exists(txt_dir):
     make_scratch_list()
 else:
     # Ask to append or delete file
