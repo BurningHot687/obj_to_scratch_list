@@ -14,13 +14,12 @@ while not os.path.exists(obj_read):
     obj_name = f"{input("Name of obj file (without extension): ")}.obj" # Input your .obj file name here without extension
     obj_read = input("File path of obj from home/absolute directory: ")
     obj_read = os.path.join(os.path.expanduser("~"), obj_read, obj_name)
-txt_write = f"{input("Name of txt file to look/create (without extension): ")}.txt" # Output .txt file name, change if approaching 200,000 lines
+txt_write = f"{input("Name of txt file to edit/create (without extension): ")}.txt" # Output .txt file name, change if approaching 200,000 lines
 txt_dir = os.path.join(os.path.expanduser("~"), input("File path to save scratch list (from home/absolute directory): "), txt_write)
 
 # Handle the wonkiness of the output file path lol
-if not os.path.exists(txt_dir):
-    make_scratch_list()
-else:
+try:
+    open(txt_dir, 'r').close() # Try to see if file exists
     print(f"The file {txt_dir} already exists.")
     append_delete = input("Press anything (like enter) to append or 'd' to delete and create a new file: ").lower() # Ask to append or delete file
     if append_delete == 'd':
@@ -29,6 +28,8 @@ else:
         except FileNotFoundError:
             print("An unexpected error occurred while trying to delete the file. A new file is being created.")
         make_scratch_list()
+except FileNotFoundError:
+    make_scratch_list()
 
 # Model Variables
 num_colors = 0 # Number of colors used in the model, set to 0 for default color
