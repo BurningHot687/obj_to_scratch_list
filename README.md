@@ -12,7 +12,8 @@ Name of obj file (without extension): Triangle Test
 File path of obj from home/absolute directory: Documents/objects
 Name of txt file to look/create: scratch list one
 File path to save scratch list (from home/absolute directory): Documents/scratch imports
-The file /home/Example/Documents/scratch imports/scratch list one.txt already exists. Type 'a' to append or 'd' to delete and create a new file: a
+The file /home/Example/Documents/scratch imports/scratch list one.txt already exists. 
+Type anything (like enter) to append or 'd' to delete and create a new file: a
 Number of obj lines: 3
 Number of txt lines: 108
 Number of lines in total: 111
